@@ -4,7 +4,7 @@ import re
 from boltons.cacheutils import cachedproperty
 from gherkin.ast_builder import AstBuilder
 from gherkin.parser import Parser
-from gherkin.token_scanner import TokenScanner
+from .compat import CompatibleTokenScanner
 
 
 def get_tags(parsed):
@@ -34,7 +34,7 @@ class Feature(ParsedStore):
     def __init__(self, featurefile):
         try:
             parser = Parser(ast_builder=AstBuilder())
-            feature = parser.parse(TokenScanner(featurefile)).get(
+            feature = parser.parse(CompatibleTokenScanner(featurefile)).get(
                 "feature", {}
             )
         except:

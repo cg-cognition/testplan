@@ -1,7 +1,4 @@
-from pytest_test_filters import skip_module_on_311
-
-skip_module_on_311("gherkin not available for 3.11")
-
+"""BDD test module."""
 
 from multiprocessing.pool import ThreadPool
 from testplan.testing.bdd import BDDTestSuiteFactory
